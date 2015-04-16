@@ -1,0 +1,1 @@
+alias dockerip='echo -e "CONTAINER ID\t\tIMAGE\t\tCOMMAND\t\t\tCREATED\t\t\tSTATUS\t\tPORTS\t\t\tNAMES\t\t\t\t\tIP"; for container in `docker ps -q`; do ip=$(docker inspect  -f "{{ .NetworkSettings.IPAddress }}" ${container} ); row=$(docker ps | grep ${container}); echo -ne "${row}\t${ip}\n"; done'
